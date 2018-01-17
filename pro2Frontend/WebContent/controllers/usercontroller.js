@@ -16,10 +16,10 @@ app.controller('UserController', function($scope, UserService, $location, $rootS
 				$location.path('/login')
 
 			}
-			if (response.status == 500) {
+			/*if (response.status == 500) {
 				$scope.error = response.data // ErrorClazz object
 				$location.path('/editprofile')
-			}
+			}*/
 		})
 	}
 

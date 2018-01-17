@@ -2,7 +2,7 @@
  * UserService
  */
 app.factory('UserService',function($http){
-	var BASE_URL="http://localhost:8080/pro2middleware"
+	var BASE_URL="http://localhost:7475/pro2middleware"
 	
 	var userService={}
 	

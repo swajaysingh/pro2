@@ -44,6 +44,30 @@ app.config(function($routeProvider){
 		templateUrl:'views/home.html',
 		controller:'HomeController'
 	})
+	.when('/uploadpic',{
+		templateUrl:'views/profilepicture.html',
+	})
+	.when('/jobdetail/:id',{
+		templateUrl:'views/jobdetails.html',
+		controller:'JobController'
+	})
+	.when('/suggestedusers',{
+		templateUrl:'views/suggestedusers.html',
+		controller:'FriendController'
+	})
+	.when('/pendingrequests',{
+		templateUrl:'views/pendingrequests.html',
+		controller:'FriendController'
+	})
+	.when('/friends',{
+		templateUrl:'views/friendslist.html',
+		controller:'FriendController'
+	})
+	.when('/chat',{
+		templateUrl:'views/chat.html',
+		controller:'ChatCtrl'
+	})
+	
 	
 	.otherwise({templateUrl:'views/home.html',controller:'HomeController'})
 })

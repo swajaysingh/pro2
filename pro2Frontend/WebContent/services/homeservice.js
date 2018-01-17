@@ -3,7 +3,7 @@
  */
 app.factory('HomeService', function($http) {
 	var homeService = {}
-	var BASE_URL = "http://localhost:8080/pro2middleware"
+	var BASE_URL = "http://localhost:7475/pro2middleware"
 	homeService.getNotificationNotViewed = function() {
 		return $http.get(BASE_URL + "/getnotification/" + 0)
 

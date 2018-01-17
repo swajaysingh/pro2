@@ -14,6 +14,9 @@
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
 	rel="stylesheet" />
+	<link href="resources/css/sample.css" rel="stylesheet">
+	<link href="assets/common/portfolio.css" rel="stylesheet">
+	
 <title>Insert title here</title>
 </head>
 <body ng-app="app">
@@ -66,8 +69,21 @@
 								<li ng-repeat="notification in notificationViewed"><a href="" ng-click="" style="color:blue">
 								<b>"{{notification.blogTitle}}"</b> is {{notification.approvalStatus}} {{notification.rejectionReason}}</a></li>
 								
-
 							</ul></li>
+							<li><a href="#/uploadpic" ng-show="currentUser.username">
+							<img src="http://localhost:7475/pro2middleware/getimage/{{currentUser.username}}" 
+							alt="Upload profile Pic" height="40" width="40"></a></li>
+							
+							<li class="dropdown"><a href="" class="dropdown-toggle"
+							data-toggle="dropdown" ng-show="currentUser.username">Friend<b
+							class="caret"></b></a>
+							<ul class="dropdown-menu">
+							<li><a href="#/suggestedusers">List of suggested users</a></li>
+							<li><a href="#/pendingrequests">Pending Requests</a></li>
+							<li><a href="#/friends">Friends List</a></li>
+							
+							</ul></li>
+							<li><a href="#/chat" ng-show="currentUser.username">chat </a></li>
 
 						<li><a href="" ng-show="currentUser.username"
 							ng-click="logout()">logout</a></li>
@@ -101,5 +117,13 @@
 	src="controllers/blogpostdetailscontroller.js"></script>
 <script type="text/javascript" src="controllers/homecontroller.js"></script>
 <script type="text/javascript" src="services/homeservice.js"></script>
+<script type="text/javascript" src="controllers/friendcontroller.js"></script>
+<script type="text/javascript" src="services/FriendService.js"></script>
+<script type="text/javascript" src="controllers/chatcontroller.js"></script>
+<script type="text/javascript" src="services/chatservice.js"></script>
+
+
+      <script type="text/javascript" src="js/sockjs/sockjs.min.js"></script>
+    <script type="text/javascript" src="js/stomp/dist/stomp.min.js"></script>
 
 </html>

@@ -1,18 +1,30 @@
 <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
-<form>
+<form name="myform" novalidate>
 <pre>
-Enter Username : <input type="text"  ng-model="user.username" >
+Enter Username : <input type="text"  ng-model="user.username" name="uname" required ng-minlength="5" >
+<span ng-show="myform.uname.$touched && myform.uname.$error.required">Username is required</span>
+<span ng-show="myform.uname.$touched && myform.uname.$error.minlength">Username must be atleast 5 characters</span>
 <span style="color:red" ng-if="error.code==2">{{error.message}}</span>
-Enter Password: <input type="password" ng-model="user.password">
-Enter Firstname : <input type="text" ng-model="user.firstname">
+Enter Password: <input type="password" ng-model="user.password" name="password" required>
+<span ng-show="myform.password.$touched && myform.password.$error.required">Password is required</span>
+
+Enter Firstname : <input type="text" ng-model="user.firstname" name="password" required>
+<span ng-show="myform.firstname.$touched && myform.firstname.$error.required">Firstname is required</span>
+
 Enter Lastname : <input type="text" ng-model="user.lastname">
+
+
 Enter Email : <input type="email" ng-model="user.email">
+<span ng-show="myform.email.$dirty && myform.email.$error.required">Email is required</span>
+<span ng-show="myform.email.$dirty && myform.email.$error.email">Email address is not valid format</span>
+
+
 <span style="color:red" ng-if="error.code==3">{{error.message}}</span>
 Enter phonenumber: <input type="text" ng-model="user.phonenumber">
 Select Role:
 <input type="radio" value="STUDENT" ng-model="user.role">Student  
 <input type="radio" value="EMPLOYEE" ng-model="user.role"> Employee
 <input type="radio" value="ALUMNI" ng-model="user.role"> Alumni
-<input type="submit" value="Register" ng-click="registerUser()"> <!-- 1 -->
+<input type="submit" value="Register" ng-click="registerUser()" ng-disabled="myform.$invalid"> <!-- 1 -->
 </pre>
 </form>
